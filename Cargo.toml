@@ -2,13 +2,17 @@
 name = "ironclad-mash"
 version = "0.1.0"
 edition = "2024"
-license = "MIT" 
+license = "MIT"
 
 [dependencies]
 maud = "0.27.0"
 axum = "0.8.4"
 axum-htmx = "0.7.0"
-sqlx = { version = "0.8", features = [ "runtime-tokio", "tls-rustls-ring-webpki" ] }
+sqlx = { version = "0.8", features = [
+    "runtime-tokio",
+    "tls-rustls-ring-webpki",
+] }
+tokio = { version = "1.44", features = ["macros", "rt-multi-thread"] }
 
 [lints.rust]
 dead_code = "allow"
