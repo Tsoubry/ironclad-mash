@@ -1,16 +1,24 @@
-use axum::{Router, routing::get};
+use axum::{
+    Router,
+    routing::{get, post},
+};
 use axum_htmx as _;
+use axum_htmx::AutoVaryLayer;
+use routes::index;
 use sqlx as _;
-use templates::render_index;
 
 mod error;
+mod routes;
 mod templates;
 
 const PORT: u16 = 8080;
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
-    let app = Router::new().route("/", get(render_index));
+    let app = Router::new()
+        .route("/", get(index))
+        .route("/clicked", post(routes::clicked))
+        .layer(AutoVaryLayer);
 
     let listener = tokio::net::TcpListener::bind(format!("[::]:{PORT}")).await?;
     println!("Server running at http://localhost:{}", PORT);

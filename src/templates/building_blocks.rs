@@ -5,6 +5,7 @@ fn header(page_title: &str) -> Markup {
         (DOCTYPE)
         meta charset="utf-8";
         title { (page_title) }
+        script src="https://unpkg.com/htmx.org@2.0.4" { };
     }
 }
 
