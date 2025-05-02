@@ -13,6 +13,7 @@ sqlx = { version = "0.8", features = [
     "tls-rustls-ring-webpki",
 ] }
 tokio = { version = "1.44", features = ["macros", "rt-multi-thread"] }
+anyhow = "1.0"
 
 [lints.rust]
 dead_code = "allow"
