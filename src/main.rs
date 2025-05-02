@@ -12,7 +12,7 @@ const PORT: u16 = 8080;
 async fn main() -> anyhow::Result<()> {
     let app = Router::new().route("/", get(render_index));
 
-    let listener = tokio::net::TcpListener::bind(format!("::{PORT}")).await?;
+    let listener = tokio::net::TcpListener::bind(format!("[::]:{PORT}")).await?;
     println!("Server running at http://localhost:{}", PORT);
 
     axum::serve(listener, app).await?;
