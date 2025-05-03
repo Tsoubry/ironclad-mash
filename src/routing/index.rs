@@ -23,3 +23,11 @@ pub async fn clicked(HxRequest(clicked): HxRequest) -> IroncladResult<Html<Strin
 
     Err(IroncladError::BadRequest)
 }
+
+pub async fn keepalive(HxRequest(keepalive): HxRequest) -> IroncladResult<()> {
+    if keepalive {
+        return Ok(());
+    }
+
+    Err(IroncladError::BadRequest)
+}

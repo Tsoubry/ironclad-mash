@@ -16,6 +16,8 @@ pub fn generate_index() -> Markup {
                 button hx-post="/clicked" hx-trigger=(CLICK) hx-swap="outerHTML" {
                     "Click me!"
                  }
+
+                 div id="keepalive-indicator" hx-get="/keepalive" hx-trigger="every 1s" { }
             }
         }
     }
