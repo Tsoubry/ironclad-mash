@@ -6,7 +6,7 @@ license = "MIT"
 
 [dependencies]
 maud = "0.27.0"
-axum = "0.8.4"
+axum = { version = "0.8.4", features = ["http2"]}
 axum-htmx = { version = "0.7.0", features = ["auto-vary", "serde"] }
 sqlx = { version = "0.8", features = [
     "runtime-tokio",
