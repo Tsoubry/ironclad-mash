@@ -1,9 +1,12 @@
-use axum::{http::StatusCode, response::Html};
+use axum::response::Html;
 use axum_htmx::{HxEvent, HxRequest, HxResponseTrigger};
 use maud::html;
 use serde_json::json;
 
-use crate::templates::render_index;
+use crate::{
+    error::{IroncladError, IroncladResult},
+    templates::render_index,
+};
 
 pub const CLICK: &str = "click";
 
@@ -21,15 +24,15 @@ pub async fn index() -> (HxResponseTrigger, Html<String>) {
     (HxResponseTrigger::normal([event]), render_index().await)
 }
 
-pub async fn clicked(HxRequest(clicked): HxRequest) -> (StatusCode, Html<String>) {
+pub async fn clicked(HxRequest(clicked): HxRequest) -> IroncladResult<Html<String>> {
     if clicked {
         let markup = html!(
             {
                 p { "clicked" }
             }
         );
-        return (StatusCode::OK, Html(markup.into_string()));
+        return Ok(Html(markup.into_string()));
     }
 
-    (StatusCode::NOT_FOUND, Html("404 Not Found".to_string()))
+    Err(IroncladError::BadRequest)
 }
