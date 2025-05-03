@@ -1,6 +1,6 @@
 use maud::{Markup, html};
 
-use crate::routes::CLICK;
+pub const CLICK: &str = "click";
 
 pub fn generate_index() -> Markup {
     html! {
