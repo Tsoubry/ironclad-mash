@@ -1,3 +1,5 @@
+#![forbid(unsafe_code)]
+
 use axum::Router;
 use axum_helmet::{Helmet, HelmetLayer};
 use axum_htmx::AutoVaryLayer;
