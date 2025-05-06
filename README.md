@@ -4,6 +4,7 @@ This project is an exploration of the MASH stack in Rust, inspired by [Evan Schw
 
 By leveraging "supersafe Rust" principles, this project aims to enforce stricter safety and security measures, ensuring robust and reliable code while maintaining high performance.
 
-## todo
+## TODO
 
 - add <https://docs.rs/axum-extra/latest/axum_extra/index.html>
+- add <https://crates.io/crates/axum_session>
