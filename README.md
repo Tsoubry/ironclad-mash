@@ -8,3 +8,4 @@ By leveraging "supersafe Rust" principles, this project aims to enforce stricter
 
 - add <https://docs.rs/axum-extra/latest/axum_extra/index.html>
 - add <https://crates.io/crates/axum_session>
+- add mkcert functionality with certificates
