@@ -21,7 +21,7 @@ async fn main() -> anyhow::Result<()> {
         .layer(HelmetLayer::new(Helmet::default()));
 
     let listener = tokio::net::TcpListener::bind(format!("[::]:{PORT}")).await?;
-    println!("Server running at http://localhost:{}", PORT);
+    println!("Server running at http://localhost:{PORT}");
 
     axum::serve(listener, app).await?;
     Ok(())
