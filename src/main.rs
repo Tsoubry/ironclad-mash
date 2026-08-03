@@ -15,10 +15,12 @@ const PORT: u16 = 8080;
 
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
+    let helmet_layer: HelmetLayer = Helmet::default().try_into()?;
+
     let app = Router::new()
         .merge(main_router())
         .layer(AutoVaryLayer)
-        .layer(HelmetLayer::new(Helmet::default()));
+        .layer(helmet_layer);
 
     let listener = tokio::net::TcpListener::bind(format!("[::]:{PORT}")).await?;
     println!("Server running at http://localhost:{PORT}");
